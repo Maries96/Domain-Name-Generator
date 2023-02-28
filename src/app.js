@@ -1,11 +1,20 @@
 /* eslint-disable */
-import "bootstrap";
-import "./style.css";
-
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+window.onload = () => {
+  document.querySelector("h2").innerHTML = generateDomains();
 };
+
+function generateDomains() {
+  let pronoun = ["the", "our", "a", "one"];
+  let adj = ["great", "fearless", "scandalous", "flamboyant"];
+  let noun = ["boxer", "racoon", "croissant", "potato"];
+
+  let domains = [];
+  for (let x of pronoun) {
+    for (let y of adj) {
+      for (let z of noun) {
+        domains.push(x + y + z);
+      }
+    }
+  }
+  return domains.map(item => `<li>${item}</li>`).join("");
+}
